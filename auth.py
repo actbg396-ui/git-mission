@@ -4,22 +4,15 @@ import os
 USER_DATA_FILE = "users.txt"
 
 def hash_password(plain_text_password):
-    # TODO: Encode the password to bytes (bcrypt requires byte strings)
     password_bytes = plain_text_password.encode("utf-8")
-
-    # TODO: Generate a salt using bcrypt.gensalt()
     salt = bcrypt.gensalt()
-    # TODO: Hash the password using bcrypt.hashpw()
     password_hash = bcrypt.hashpw(password_bytes, salt)
-    # TODO: Decode the hash back to a string to store in a text file
     hashed_string = password_hash.decode("utf-8")
     return hashed_string
 
 def verify_password(plain_text_password, hashed_string):
-    # TODO: Encode both the plaintext password and the stored hash to byt
     password_bytes = plain_text_password.encode("utf-8")
     hash_bytes = hashed_string.encode("utf-8")
-    # TODO: Use bcrypt.checkpw() to verify the password
     is_valid = bcrypt.checkpw(password_bytes, hash_bytes)
     return is_valid
 
@@ -175,7 +168,7 @@ def main():
             # Attempt login
             if login_user(username, password):
                 print("\nYou are now logged in.")
-            print("In a real application, you would now access the d")
+            print("In a real application, you would now access the dashboard")
 
             # Optional: Ask if they want to logout or exit
             input("\nPress Enter to return to main menu...")
@@ -188,8 +181,9 @@ def main():
 
         else:
             print("\nError: Invalid option. Please select 1, 2, or 3.")
-        if __name__ == "__main__":
-            main()
+
+if __name__ == "__main__":
+    main()
 
 
 
