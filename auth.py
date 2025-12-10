@@ -46,7 +46,7 @@ def user_exists(username):
 
 def login_user(username, password):
     if not os.path.exists(USER_DATA_FILE):
-        print(f"Error: No users registred. Register first please.")
+        print(f"Error: No users registered. Register first please.")
         return False
 
     with open(USER_DATA_FILE,'r') as file:
